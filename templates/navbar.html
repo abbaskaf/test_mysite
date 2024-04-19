@@ -1,0 +1,42 @@
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="nav-link" href="{% url 'logout' %}" id="out">خروج</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link " href="{% url 'login_view' %}" id="in">ورود</a>
+                </li>
+                <li>
+                      <a class="nav-link " href="{% url 'sign' %}" id="sign">ثبت نام</a>
+                </li>
+                {% endif %}
+
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'menu' %}">خانه
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+
+                <a class="nav-link" href="{% url 'category_view' cat='1' %}">لباس</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'category_view' cat=2 %}">شلوار</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">درباره ما</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>

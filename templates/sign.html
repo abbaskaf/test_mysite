@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - login &amp; signup form</title>
+  <link rel="stylesheet" href="{% static 'log.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper">
+  <div class="title-text">
+    <div class="title signup">فرم ثبت نام</div>
+  </div>
+  <div class="form-container">
+
+      <input type="radio" name="slide" id="signup">
+      <label for="signup" class="slide signup">ثبت نام</label>
+      <div class="slider-tab"></div>
+
+    <div class="form-inner">
+      <form  method="post" action="{% url 'sign' %}" class="signup">{% csrf_token %}
+        <div class="field">
+          {{ form.username }}
+        </div>
+        <div class="field">
+          {{ form.password1 }}
+        </div>
+        <div class="field">
+          {{ form.password2 }}
+        </div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="ثبت نام">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script  src="{% static 'log.js' %}"></script>
+
+</body>
+</html>

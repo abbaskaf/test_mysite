@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - login &amp; signup form</title>
+  <link rel="stylesheet" href="{% static 'log.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="messages">
+          {% if messages %}
+               {% for message in messages %}
+                       <h1>{{ message }}</h1>
+                    </div>
+               {% endfor %}
+           {% endif %}
+<div class="wrapper">
+  <div class="title-text">
+    <div class="title login">فرم ورود</div>
+  </div>
+  <div class="form-container">
+
+      <input type="radio" name="slide" id="login" checked>
+      <div class="slider-tab"></div>
+
+    <div class="form-inner">
+      <form  method="post" action="{% url 'login_view' %}" class="login">{% csrf_token %}
+        <div class="field">
+          <input type="text" placeholder="نام کاربری" name="username" required>
+        </div>
+        <div class="field">
+          <input type="password" placeholder="رمزعبور" name="password" required>
+        </div>
+        <div class="pass-link"><a href="#">رمز عبور خود را فراموش کرده ام?</a></div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="ورود">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script  src="{% static 'log.js' %}"></script>
+
+</body>
+</html>
